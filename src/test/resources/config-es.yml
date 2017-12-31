@@ -1,0 +1,36 @@
+baseDir: home/vrc/dash/
+sslTruststore: /home/vrc/dash/some.jks
+sslTruststorePassword: XXXX
+sources:
+  - name: es-accept-1
+    link: http://server/_nodes/node/stats/os,process,jvm,fs,indices?pretty
+    poll: 30
+    duration: 7200
+    flatten: true
+  - name: es-accept-2
+    link: http://server/_nodes/node/stats/os,process,jvm,fs,indices?pretty
+    poll: 30
+    duration: 7200
+    flatten: true
+  - name: es-accept-3
+    link: http://server/_nodes/node/stats/os,process,jvm,fs,indices?pretty
+    poll: 30
+    duration: 7200
+    flatten: true
+categories:
+  - name: memory
+    fields: os.mem.free_in_bytes, os.mem.used_in_bytes, jvm.mem.heap_committed_in_bytes, jvm.mem.heap_used_in_bytes
+  - name: percentage-usage
+    fields: os.mem.free_percent, os.mem.used_percent, os.cpu.usage, process.cpu.percent
+  - name: threads
+    fields: jvm.threads.count, jvm.threads.peak_count
+  - name: disk_io_ops
+    fields: fs.data.0.disk_writes, fs.data.0.disk_reads, fs.data.0.disk_io_op
+  - name: disk_io_bytes
+    fields: fs.data.0.disk_read_size_in_bytes, fs.data.0.disk_write_size_in_bytes
+  - name: index_counts
+    fields: search.query_total, search.fetch_total, indexing.index_total
+  - name: index_times
+    fields: search.query_time_in_millis,search.fetch_time_in_millis,merges.total_time_in_millis,refresh.total_time_in_millis,flush.total_time_in_millis
+  - name: query_cache
+    fields: query_cache.hit_count,query_cache.miss_count,query_cache.evictions

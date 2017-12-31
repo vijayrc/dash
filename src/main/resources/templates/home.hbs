@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Dash</title>
+    <link href='css/dash.css' rel='stylesheet' type='text/css'>
+    <link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id='outer' style='width:100%'>
+    <div id='inner'>
+        <div id="header">
+            <img src="images/dash.png" style="margin-bottom: 5%"/>
+            <span class="dash">Dash</span>
+            <span class="cep">vijayrc.com</span>
+         </div>
+
+        <form action="start" method="post" class="form-inline" style="width:100%">
+            <div class="form-group" style="width:100%">
+                <input type="submit" value="Start" class="btn btn-success form-control"/>
+                <input type="text" class="input-sm form-control"  required="required" name="build" id="build" placeholder="test name"  style="width:80%"/>
+            </div>
+        </form>
+        <form action="stop" method="post" class="form-inline" style="width:100%">
+            <div class="form-group">
+                <input type="submit" value="Stop All" class="btn btn-danger form-control">
+            </div>
+        </form>
+
+        <button class="btn btn-primary" type="button" style="margin-top: 5%">Exists  <span class="badge">{{existCount}}</span></button>
+        <button class="btn btn-primary" type="button" style="margin-top: 5%">Runs  <span class="badge">{{existCount}}</span></button>
+
+        <table class="table table-condensed run-table table-striped">
+            {{#each runs}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td><a href="runs/view?runName={{this.name}}">view</a></td>
+                    <td><a href="runs/redo?runName={{this.name}}">redo</a></td>
+                </tr>
+            {{/each}}
+        </table>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+baseDir: home/vrc/dash/
+sslTruststore: /home/vrc/dash/some.jks
+sslTruststorePassword: XXXX
+sources:
+  - name: blue-1
+    link: https://server1/metrics
+    poll: 30
+    duration: 7200
+    username: XXXXX
+    password: XXXXX
+  - name: blue-2
+    link: https://server2metrics
+    poll: 30
+    duration: 7200
+    username: admin
+    password: XXXXX
+  - name: blue-3
+    link: https://server2metrics
+    poll: 30
+    duration: 7200
+    username: XXXXX
+    password: XXXXX
+categories:
+  - name: gc
+    fields: gc.ps_marksweep.count, gc.ps_marksweep.time, gc.ps_scavenge.count, gc.ps_scavenge.time
+  - name: heap
+    fields: heap, heap.committed, heap.init,heap.used
+  - name: threads
+    fields: threads, threads.daemon, threads.peak
+  - name: apps-fetch-counts
+    fields: company.system.facets.apps.inquiry.get.count, company.system.facets.apps.inquiry.200.count, company.system.facets.apps.inquiry.404.count
+  - name: stackedInquiry-fetch-counts
+    fields: company.system.facets.stackedInquiry.counter, company.system.facets.stackedInquiry.timer.snapshot.mean
+  - name: apps-latency
+    fields: company.system.facets.apps.time.snapshot.75thPercentile, company.system.facets.apps.time.snapshot.95thPercentile, company.system.facets.apps.time.snapshot.98thPercentile, company.system.facets.apps.time.snapshot.99thPercentile
+  - name: system-load
+    fields: systemload.average

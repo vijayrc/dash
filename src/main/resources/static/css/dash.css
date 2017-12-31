@@ -1,0 +1,70 @@
+body{
+}
+#inner {
+    width: 50%;
+    margin: 0 auto;
+    padding: 1%;
+}
+.graph-div{
+    padding: 1%;
+    border-left: 1px dotted lightgrey;
+    margin-bottom: 3%;
+}
+.graph-header{
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black;
+    text-align: left;
+    padding-left: 1%;
+
+}
+.graph-container{
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+.category-graph{
+    margin-top: 1%;
+}
+.category-header{
+    text-align: center;
+}
+.run-table{
+    margin-top: 1%;
+    font-size: 14px;
+}
+.tight-para{
+    text-align: right;
+    margin: 0%
+}
+.pipe{
+    font-weight: bold;
+    color: seagreen;
+    margin-left: 1%;
+}
+.cep{
+
+}
+.dash{
+     font-size : 5em;
+     font-weight: bold;
+     font-family: fantasy;
+}
+.header{
+    margin-bottom: 5%
+}
+.run-table-col{
+    padding-left: 1%;
+}
+.back-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/dash/images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    opacity: 0.8;
+    filter:alpha(opacity=80);
+}

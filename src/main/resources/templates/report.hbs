@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="../css/c3.css" rel='stylesheet' type='text/css'>
+        <link href="../css/dash.css" rel='stylesheet' type='text/css'>
+        <link href="../css/bootstrap.min.css" rel='stylesheet' type='text/css'>
+    </head>
+    <body style = 'font-family: Arial'>
+
+        <div class="container-fluid graph-container">
+             <div id="header">
+                    <img src="../images/dash.png"/>
+                    <span class="dash">Dash</span>
+                    <span class="cep">vijayrc.com</span>
+              </div>
+            <div class="row">
+                <h3>{{run.name}}</h3><span class="badge">RUN</span>
+                <ul>
+                    <li><span class="badge">SOURCE </span><span class=" run-table-col"><bold>{{run.source.name}}</bold> - <a href="{{run.source.link}}">{{run.source.link}}</a></span></li>
+                    <li><span class="badge">PERIOD</span><span class=" run-table-col">{{run.startTime}} - {{run.stopTime}}</span></li>
+                    <li><span class="badge">STATE</span><span class=" run-table-col">{{run.state}}</span></li>
+                </ul>
+            </div>
+            <div class="row">
+                 {{#each categories}}
+                     <div class="col-md-6 graph-div">
+                         <div class="category-header"><img src="../images/dash-category.png"/><span class="graph-header">{{this.name}}</span></div>
+                        <div class="category-graph" id="{{this.name}}"></div>
+                      </div>
+                 {{/each}}
+             </div>
+        </div>
+
+        <script src="../js/jquery-1.9.1.min.js"></script>
+        <script src="../js/d3.v3.min.js"></script>
+        <script src="../js/c3.js"></script>
+        <script>
+            function draw(categoryName, categoryUnit, csv){
+                c3.generate(
+                {
+                bindto: categoryName,
+                data: {url: csv, axes: {total: 'y'}, type: 'spline'},
+                axis:
+                {
+                    x: {label: 'Time'},
+                    y: {show: true, label: {text: categoryUnit, position: 'outer-middle'}},},
+                    tooltip: {enabled: true},
+                    zoom: {enabled: true}
+                 });
+                };
+
+            {{#each categories}}
+            draw("#{{this.name}}", "{{this.unit}}", "../csvs?csvFile={{run.name}}-{{this.name}}");
+            {{/each}}
+
+        </script>
+    </body>
+</html>
