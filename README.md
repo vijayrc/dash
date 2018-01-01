@@ -1,4 +1,4 @@
-![dash page](https://raw.githubusercontent.com/vijayaraj210/dash/master/github.png)
+![dash page](github.png)
 
 ###setup
 0. git clone git@github.com:vijayaraj210/dash.git
