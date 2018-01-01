@@ -1,6 +1,6 @@
 ![dash page](github.png)
 
-###setup
+### setup
 0. git clone git@github.com:vijayaraj210/dash.git
 1. find. -name applicaton.properties | xargs vim
      - configure *config.yaml* location, then inside *config.yml*
@@ -16,13 +16,13 @@
 4.  dash opens : http://localhost:9195/dash/
 
 
-###tech
+### tech
 0. java
 1. spring-boot
 2. handlebar.js
 3. c3.js
 
-###todo
+### todo
 0. add time units in X axis
 1. improve dashboard user experience
 2. show **run** metadata
